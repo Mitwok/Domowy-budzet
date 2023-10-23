@@ -604,6 +604,10 @@ video {
   width: 9rem;
 }
 
+.w-full {
+  width: 100%;
+}
+
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -709,8 +713,17 @@ video {
   text-transform: uppercase;
 }
 
+.text-slate-400 {
+  --tw-text-opacity: 1;
+  color: rgb(148 163 184 / var(--tw-text-opacity));
+}
+
 .duration-200 {
   transition-duration: 200ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
 }
 
 .ease-in-out {
@@ -736,11 +749,30 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media (min-width: 768px) {
+  .md\:w-1\/2 {
+    width: 50%;
+  }
+
   .md\:flex-nowrap {
     flex-wrap: nowrap;
   }
 
   .md\:border-r-4 {
     border-right-width: 4px;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }

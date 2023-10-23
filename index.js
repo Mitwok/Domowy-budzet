@@ -132,14 +132,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // Добавьте обработчики кнопок редактирования и удаления для каждого элемента
     expenses.forEach((expense, index) => {
       const li = document.createElement("li");
-      li.textContent = `${expense.name} - ${expense.value} zł`;
+      const textSpan = document.createElement("span");
+      const valueSpan = document.createElement("span");
+      const textDiv = document.createElement("div");
+      textSpan.textContent = `${expense.name}`;
+      valueSpan.textContent = `${expense.value} zł`;
+      valueSpan.classList.add("text-center");
+      //   li.textContent = `${item.name} - ${item.value} zł`;
       const editDiv = document.createElement("div");
+      editDiv.classList.add("flex", "flex-nowrap");
+      textDiv.classList.add("flex", "justify-between", "w-full", "px-4");
       const editButton = document.createElement("button");
       editButton.textContent = "✏️";
       editButton.title = "Edytuj";
+      editButton.classList.add("p-2");
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "🗑️";
       deleteButton.title = "Usuń";
+      deleteButton.classList.add("p-2");
 
       // Обработчик для кнопки редактирования
       editButton.addEventListener("click", () => editItem(expenses, index));
@@ -150,29 +160,46 @@ document.addEventListener("DOMContentLoaded", function () {
       li.classList.add(
         "flex",
         "justify-between",
+        "items-center",
         "bg-white",
         "rounded-lg",
         "mb-4",
-        "p-2"
+        "p-2",
+        "text-xl",
+        "md:text-base"
       );
       editButton.classList.add("mr-2");
+      textDiv.appendChild(textSpan);
+      textDiv.appendChild(valueSpan);
+      li.appendChild(textDiv);
       li.appendChild(editDiv);
       editDiv.appendChild(editButton);
       editDiv.appendChild(deleteButton);
+      incomeList.appendChild(li);
 
       expensesList.appendChild(li);
     });
 
     income.forEach((item, index) => {
       const li = document.createElement("li");
-      li.textContent = `${item.name} - ${item.value} zł`;
+      const textSpan = document.createElement("span");
+      const valueSpan = document.createElement("span");
+      const textDiv = document.createElement("div");
+      textSpan.textContent = `${item.name}`;
+      valueSpan.textContent = `${item.value} zł`;
+      valueSpan.classList.add("text-center");
+      //   li.textContent = `${item.name} - ${item.value} zł`;
       const editDiv = document.createElement("div");
+      editDiv.classList.add("flex", "flex-nowrap");
+      textDiv.classList.add("flex", "justify-between", "w-full", "px-4");
       const editButton = document.createElement("button");
       editButton.textContent = "✏️";
       editButton.title = "Edytuj";
+      editButton.classList.add("p-2");
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "🗑️";
       deleteButton.title = "Usuń";
+      deleteButton.classList.add("p-2");
 
       // Обработчик для кнопки редактирования
       editButton.addEventListener("click", () => editItem(income, index));
@@ -183,12 +210,18 @@ document.addEventListener("DOMContentLoaded", function () {
       li.classList.add(
         "flex",
         "justify-between",
+        "items-center",
         "bg-white",
         "rounded-lg",
         "mb-4",
-        "p-2"
+        "p-2",
+        "text-xl",
+        "md:text-base"
       );
       editButton.classList.add("mr-2");
+      textDiv.appendChild(textSpan);
+      textDiv.appendChild(valueSpan);
+      li.appendChild(textDiv);
       li.appendChild(editDiv);
       editDiv.appendChild(editButton);
       editDiv.appendChild(deleteButton);

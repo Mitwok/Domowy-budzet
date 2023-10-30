@@ -8,3 +8,7 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
 }
+
+/* * {
+  outline: 1px solid lightgreen;
+} */

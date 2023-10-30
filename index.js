@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const value = parseFloat(
         document.getElementById("new-item-expenses-value").value
       );
-      if (name && !isNaN(value)) {
+      if (name && !isNaN(value) && value >= 0) {
         const newItem = { name, value };
         expenses.unshift(newItem);
         addItemToList(expensesList, newItem);
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const value = parseFloat(
         document.getElementById("new-item-income-value").value
       );
-      if (name && !isNaN(value)) {
+      if (name && !isNaN(value) && value >= 0) {
         const newItem = { name, value };
         income.unshift(newItem);
         addItemToList(incomeList, newItem);

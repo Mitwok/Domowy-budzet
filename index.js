@@ -344,8 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "mb-4",
         "p-2",
         "text-xl",
-        "md:text-base",
-        "slide-in"
+        "md:text-base"
       );
       editButton.classList.add("mr-2");
       textDiv.appendChild(textSpan);

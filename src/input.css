@@ -2,13 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Скрыть стрелочки в поле number в Google Chrome */
+/* Hide the arrows in the number field in Google Chrome */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
 }
 
-/* * {
-  outline: 1px solid lightgreen;
-} */
+/* Hiding the arrows for input fields with the type "number" in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-in;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+    transform: translateY(2.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.slide-out {
+  animation: slideOut 0.3s ease-out;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+    transform: translateY(2.5rem);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}

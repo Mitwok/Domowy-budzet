@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function saveFocus(e) {
-      if (e.key === "Enter") {
+      if (e.key === "Enter" || e.keyCode === 13) {
         e.preventDefault();
         save.focus();
       }

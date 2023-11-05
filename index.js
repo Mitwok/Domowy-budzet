@@ -171,11 +171,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const cancel = document.getElementById("cancel-button");
     const save = document.getElementById("save-button");
 
+    editWindow.addEventListener("submit", saveButton);
+
     // Fill in the text fields with the element data
     newNameEdit.value = item.name;
     newValueEdit.value = item.value;
 
-    editModal.classList.add("fixed");
     editModal.classList.remove("hidden");
     fadeIn();
     newNameEdit.focus();
@@ -183,7 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (event) {
       if (event.target === edit) {
         editModal.classList.add("hidden");
-        editModal.classList.remove("fixed");
+        editWindow.removeEventListener("submit", saveButton);
+        newValueEdit.removeEventListener("keydown", saveFocus);
       }
     });
 
@@ -204,16 +206,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    newValueEdit.addEventListener("keydown", function (e) {
+    function saveFocus(e) {
       if (e.key === "Enter") {
-        editWindow.dispatchEvent(new Event("submit"));
+        e.preventDefault();
+        save.focus();
       }
-    });
+    }
+    newValueEdit.addEventListener("keydown", saveFocus);
 
     cancel.addEventListener("click", function (e) {
       e.preventDefault();
       editModal.classList.add("hidden");
-      editModal.classList.remove("fixed");
+      editWindow.removeEventListener("submit", saveButton);
+      newValueEdit.removeEventListener("keydown", saveFocus);
     });
 
     save.addEventListener("keydown", function (e) {
@@ -226,19 +231,18 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    editWindow.addEventListener("submit", saveButton);
-
     function saveButton(event) {
+      event.preventDefault();
       if (newNameEdit.value !== "" && !isNaN(newValueEdit.value)) {
         item.name = newNameEdit.value;
         item.value = parseFloat(newValueEdit.value);
         list[index] = item;
         editWindow.removeEventListener("submit", saveButton);
+        newValueEdit.removeEventListener("keydown", saveFocus);
         updateTotalValues();
         refreshItemList();
         event.preventDefault();
         editModal.classList.add("hidden");
-        editModal.classList.remove("fixed");
       }
     }
   }

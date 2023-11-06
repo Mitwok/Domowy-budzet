@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function for updating totals
   function updateTotalValues() {
-    expensesTotalElement.textContent = expenses.reduce(
-      (total, expense) => total + expense.value,
-      0
-    );
-    incomeTotalElement.textContent = income.reduce(
-      (total, income) => total + income.value,
-      0
-    );
+    expensesTotalElement.textContent = expenses
+      .reduce((total, expense) => total + expense.value, 0)
+      .toFixed(2)
+      .replace(/\.?0*$/, "");
+    incomeTotalElement.textContent = income
+      .reduce((total, income) => total + income.value, 0)
+      .toFixed(2)
+      .replace(/\.?0*$/, "");
     total =
       parseFloat(incomeTotalElement.textContent) -
       parseFloat(expensesTotalElement.textContent);

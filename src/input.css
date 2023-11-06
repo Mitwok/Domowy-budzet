@@ -43,31 +43,15 @@ input[type="number"] {
   }
 }
 
-.fade-out {
-  animation: fadeOut 0.3s ease-out;
+.add-in {
+  animation: addIn 0.3s ease-in;
 }
 
-@keyframes fadeOut {
+@keyframes addIn {
   from {
-    opacity: 1;
+    transform: translateY(-5rem);
   }
   to {
-    opacity: 0;
-  }
-}
-
-.slide-out {
-  animation: slideOut 0.3s ease-out;
-}
-
-@keyframes slideOut {
-  from {
-    opacity: 1;
-    transform: scale(1);
-    transform: translateY(2.5rem);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(0);
   }
 }
